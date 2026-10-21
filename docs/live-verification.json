@@ -1,0 +1,15 @@
+{
+  "result": "passed",
+  "server_processes": 4,
+  "checks": [
+    "live HTTP CRUD",
+    "validation 422",
+    "duplicate 409",
+    "missing record 404",
+    "create persists",
+    "update persists",
+    "delete persists"
+  ],
+  "python": "3.14.6",
+  "database": "isolated temporary SQLite database"
+}

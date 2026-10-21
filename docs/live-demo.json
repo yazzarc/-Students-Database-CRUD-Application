@@ -1,0 +1,200 @@
+[
+  {
+    "method": "GET",
+    "path": "/health",
+    "request": null,
+    "status": 200,
+    "response": {
+      "status": "ok",
+      "database": "sqlite"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/students",
+    "request": {
+      "name": "Live Demo Student",
+      "date_of_birth": "2006-04-12",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "course": "Python",
+      "enrollment_date": "2026-01-10"
+    },
+    "status": 201,
+    "response": {
+      "student_id": 1,
+      "name": "Live Demo Student",
+      "date_of_birth": "2006-04-12",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "phone": null,
+      "course": "Python",
+      "address": null,
+      "enrollment_date": "2026-01-10",
+      "created_at": "2026-10-18T06:52:43.843022Z",
+      "updated_at": "2026-10-18T06:52:43.843022Z"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/students/1",
+    "request": null,
+    "status": 200,
+    "response": {
+      "student_id": 1,
+      "name": "Live Demo Student",
+      "date_of_birth": "2006-04-12",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "phone": null,
+      "course": "Python",
+      "address": null,
+      "enrollment_date": "2026-01-10",
+      "created_at": "2026-10-18T06:52:43.843022Z",
+      "updated_at": "2026-10-18T06:52:43.843022Z"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/students?course=Python&limit=2",
+    "request": null,
+    "status": 200,
+    "response": {
+      "total": 1,
+      "limit": 2,
+      "offset": 0,
+      "items": [
+        {
+          "student_id": 1,
+          "name": "Live Demo Student",
+          "date_of_birth": "2006-04-12",
+          "email": "live.demo.a4e2dd5c1a@example.com",
+          "phone": null,
+          "course": "Python",
+          "address": null,
+          "enrollment_date": "2026-01-10",
+          "created_at": "2026-10-18T06:52:43.843022Z",
+          "updated_at": "2026-10-18T06:52:43.843022Z"
+        }
+      ]
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "/students/1",
+    "request": {
+      "course": "Data Science"
+    },
+    "status": 200,
+    "response": {
+      "student_id": 1,
+      "name": "Live Demo Student",
+      "date_of_birth": "2006-04-12",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "phone": null,
+      "course": "Data Science",
+      "address": null,
+      "enrollment_date": "2026-01-10",
+      "created_at": "2026-10-18T06:52:43.843022Z",
+      "updated_at": "2026-10-18T06:52:43.869522Z"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/students/1",
+    "request": {
+      "name": "Updated Demo Student",
+      "date_of_birth": "2006-04-12",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "course": "Python",
+      "enrollment_date": "2026-01-10"
+    },
+    "status": 200,
+    "response": {
+      "student_id": 1,
+      "name": "Updated Demo Student",
+      "date_of_birth": "2006-04-12",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "phone": null,
+      "course": "Python",
+      "address": null,
+      "enrollment_date": "2026-01-10",
+      "created_at": "2026-10-18T06:52:43.843022Z",
+      "updated_at": "2026-10-18T06:52:43.881457Z"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/students",
+    "request": {
+      "name": "Live Demo Student",
+      "date_of_birth": "2006-04-12",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "course": "Python",
+      "enrollment_date": "2026-01-10"
+    },
+    "status": 409,
+    "response": {
+      "detail": "A student with this email already exists."
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/students",
+    "request": {
+      "name": "Live Demo Student",
+      "date_of_birth": "invalid",
+      "email": "live.demo.a4e2dd5c1a@example.com",
+      "course": "Python",
+      "enrollment_date": "2026-01-10"
+    },
+    "status": 422,
+    "response": {
+      "detail": [
+        {
+          "type": "date_from_datetime_parsing",
+          "loc": [
+            "body",
+            "date_of_birth"
+          ],
+          "msg": "Input should be a valid date or datetime, input is too short",
+          "input": "invalid",
+          "ctx": {
+            "error": "input is too short"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/ask",
+    "request": {
+      "question": "How many students are there?"
+    },
+    "status": 200,
+    "response": {
+      "answer": "There is 1 student in the database.",
+      "total_matches": 1,
+      "shown": 0,
+      "truncated": false,
+      "filters": {},
+      "records": [],
+      "source": "sqlite",
+      "ai_explanation": null
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "/students/1",
+    "request": null,
+    "status": 204,
+    "response": null
+  },
+  {
+    "method": "GET",
+    "path": "/students/1",
+    "request": null,
+    "status": 404,
+    "response": {
+      "detail": "Student not found."
+    }
+  }
+]

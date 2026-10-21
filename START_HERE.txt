@@ -1,0 +1,35 @@
+EWB STUDENT RECORDS API - COMPLETE SUBMISSION PACKAGE
+
+1. YOUR REPORT
+   Open output/pdf/EWB_Student_CRUD_Project_Report.pdf.
+   Name, student/intern ID, college and date fields are blank.
+   You can type into them with a PDF form editor or fill them after printing.
+   Save a filled copy before uploading it.
+   Editable report text is in docs/PROJECT_REPORT.md.
+
+2. RUN THE PROJECT
+   Open PowerShell in this folder and follow README.md.
+   Quick commands:
+
+   py -3 -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+   .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+
+   Open http://127.0.0.1:8000/docs in your browser.
+   Use fictional student details. Ollama is optional.
+
+3. PREPARE FOR THE REVIEW
+   Read docs/VIVA_AND_DEMO.md.
+   Run scripts.seed and scripts.demo as described in the README.
+   The package includes 48 passing automated tests and live HTTP evidence.
+   Actual Ollama model inference was not run; its API integration was mocked.
+
+4. SUBMIT
+   Create a GitHub repository and upload this folder's contents.
+   Preserve app/, docs/, examples/, tests/, scripts/ and output/.
+   Upload the filled report, README and requirements files too.
+   Do not upload a .venv folder or generated database files.
+   Send the repository link through your trainer's announced channel.
+
+The ZIP is prepared for upload. No repository has been published and no
+message has been sent to your trainer.

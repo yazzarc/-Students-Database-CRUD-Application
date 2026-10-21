@@ -1,0 +1,57 @@
+@baseUrl = http://127.0.0.1:8000
+
+### Run in order using the VS Code REST Client extension.
+### This file uses fictional data. If this email exists, delete it or change it.
+# @name create
+POST {{baseUrl}}/students
+Content-Type: application/json
+
+{
+  "name": "Request Demo",
+  "date_of_birth": "2006-04-12",
+  "email": "request.demo@example.com",
+  "course": "Python",
+  "enrollment_date": "2026-01-10"
+}
+
+### List / filter
+GET {{baseUrl}}/students?course=Python&born_after=2005-12-31&limit=20&offset=0
+
+### Read created student
+GET {{baseUrl}}/students/{{create.response.body.$.student_id}}
+
+### Partial update
+PATCH {{baseUrl}}/students/{{create.response.body.$.student_id}}
+Content-Type: application/json
+
+{"course": "Data Science"}
+
+### Full replacement
+PUT {{baseUrl}}/students/{{create.response.body.$.student_id}}
+Content-Type: application/json
+
+{
+  "name": "Request Demo Updated",
+  "date_of_birth": "2006-04-12",
+  "email": "request.demo@example.com",
+  "course": "Python",
+  "enrollment_date": "2026-01-10"
+}
+
+### Grounded question without Ollama
+POST {{baseUrl}}/ask
+Content-Type: application/json
+
+{"question": "List students born after 2005", "use_ai": false}
+
+### Optional Ollama commentary (enable and run Ollama first)
+POST {{baseUrl}}/ask
+Content-Type: application/json
+
+{"question": "How many students are there?", "use_ai": true}
+
+### Delete created student
+DELETE {{baseUrl}}/students/{{create.response.body.$.student_id}}
+
+### Expected 404 after deletion
+GET {{baseUrl}}/students/{{create.response.body.$.student_id}}
